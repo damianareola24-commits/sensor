@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel IoT</title>
+  <!-- El CSS importa Poppins, pero es una buena práctica incluirlo en el HTML también -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NOTIFICACIÓN DE ALERTA (Posición Fija) -->
+  <div class="alert-box">
+    ⚠️ Alerta Crítica: ¡Niveles de Gas Altos!
+  </div>
+
+  <div class="container">
+    
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+      <div class="logo">
+        IoT<span>Dash</span>
+      </div>
+      
+      <ul class="menu">
+        <li class="active">
+          <span>📊</span> Panel de Control
+        </li>
+        <li>
+          <span>⚙️</span> Dispositivos
+        </li>
+        <li>
+          <span>📈</span> Análisis
+        </li>
+        <li>
+          <span>🔔</span> Alertas
+        </li>
+      </ul>
+
+      <div class="status-box">
+        <h3>Estado de la Red</h3>
+        <div class="online">● Todos los Sistemas en Línea</div>
+        <p>Latencia: 24ms</p>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main">
+      
+      <!-- BARRA SUPERIOR -->
+      <header class="topbar">
+        <div>
+          <h1>Resumen de la Instalación</h1>
+          <p>Bienvenido de nuevo, monitoreando 4 zonas activas.</p>
+        </div>
+        <div class="online-box">
+          ● Servidor Conectado
+        </div>
+      </header>
+
+      <!-- TARJETAS DE MÉTRICAS -->
+      <section class="cards">
+        <div class="card gas">
+          <div class="icon">💨</div>
+          <h3>Nivel de Gas</h3>
+          <p>12%</p>
+          <span>Normal</span>
+        </div>
+        
+        <div class="card temp">
+          <div class="icon">🌡️</div>
+          <h3>Temperatura</h3>
+          <p>24°C</p>
+          <span>Estable</span>
+        </div>
+        
+        <div class="card valve">
+          <div class="icon">🚰</div>
+          <h3>Válvula Principal</h3>
+          <p>ABIERTA</p>
+          <span>Flujo: 45 L/m</span>
+        </div>
+        
+        <div class="card sprinkler">
+          <div class="icon">💧</div>
+          <h3>Aspersores</h3>
+          <p>APAGADO</p>
+          <span>Siguiente ciclo: 18:00</span>
+        </div>
+      </section>
+
+      <!-- ESTADO DEL SISTEMA -->
+      <section class="system-status">
+        <div class="shield">🛡️</div>
+        <div id="systemText">
+          Sistema Seguro y Operando Normalmente
+        </div>
+      </section>
+
+      <!-- GRÁFICOS Y CUADRÍCULA DE HISTORIAL -->
+      <section class="charts">
+        
+        <!-- ÁREA DE GRÁFICOS -->
+        <div class="chart-box">
+          <h3>Consumo en Tiempo Real</h3>
+          <!-- Inserta un Canvas o gráfico SVG aquí -->
+          <div style="height: 250px; display: flex; align-items: center; justify-content: center; color: #94a3b8;">
+            [ Área del Gráfico ]
+          </div>
+        </div>
+
+        <!-- HISTORIAL DE EVENTOS -->
+        <div class="history">
+          <div class="history-header">
+            <h3>Eventos Recientes</h3>
+            <button>Ver Todo</button>
+          </div>
+          
+          <div class="event">
+            <div>Válvula #2 Abierta</div>
+            <span class="green">10:42 AM</span>
+          </div>
+          <div class="event">
+            <div>Pico de Temp Detectado</div>
+            <span class="yellow">09:15 AM</span>
+          </div>
+          <div class="event">
+            <div>Conexión Perdida</div>
+            <span class="red">Ayer</span>
+          </div>
+        </div>
+        
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>
