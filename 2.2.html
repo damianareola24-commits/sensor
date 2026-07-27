@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FireGuard</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CHART -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            🔥 FireGuard
+        </div>
+
+        <ul class="menu">
+
+            <li class="active">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            <li>
+                <i class="fa-solid fa-microchip"></i>
+                Sensores
+            </li>
+
+            <li>
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                Historial
+            </li>
+
+            <li>
+                <i class="fa-solid fa-gear"></i>
+                Configuración
+            </li>
+
+        </ul>
+
+        <div class="status-box">
+
+            <h3>Estado del Sistema</h3>
+
+            <p class="online">
+                ● Conectado
+            </p>
+
+            <span id="fecha"></span>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOP -->
+        <header class="topbar">
+
+            <div>
+                <h1>Sistema Inteligente de Detección</h1>
+                <p>Monitoreo en tiempo real</p>
+            </div>
+
+            <div class="online-box">
+                <i class="fa-solid fa-wifi"></i>
+                En línea
+            </div>
+
+        </header>
+
+        <!-- CARDS -->
+        <section class="cards">
+
+            <div class="card gas">
+
+                <div class="icon">
+                    <i class="fa-solid fa-cloud"></i>
+                </div>
+
+                <h3>Gas Detectado</h3>
+
+                <p id="gasValue">1200</p>
+
+                <span>ppm</span>
+
+            </div>
+
+            <div class="card temp">
+
+                <div class="icon">
+                    <i class="fa-solid fa-temperature-three-quarters"></i>
+                </div>
+
+                <h3>Temperatura</h3>
+
+                <p id="tempValue">28</p>
+
+                <span>°C</span>
+
+            </div>
+
+            <div class="card valve">
+
+                <div class="icon">
+                    <i class="fa-solid fa-faucet"></i>
+                </div>
+
+                <h3>Electroválvula</h3>
+
+                <p id="valveStatus">ABIERTA</p>
+
+            </div>
+
+            <div class="card sprinkler">
+
+                <div class="icon">
+                    <i class="fa-solid fa-shower"></i>
+                </div>
+
+                <h3>Aspersores</h3>
+
+                <p id="sprinklerStatus">APAGADOS</p>
+
+            </div>
+
+        </section>
+
+        <!-- ESTADO -->
+        <section class="system-status">
+
+            <div class="shield">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div>
+
+                <h2 id="systemText">
+                    NORMAL
+                </h2>
+
+                <p id="systemDesc">
+                    Todos los sistemas funcionando correctamente
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- GRAFICAS -->
+        <section class="charts">
+
+            <div class="chart-box">
+
+                <h2>Monitoreo en Tiempo Real</h2>
+
+                <canvas id="gasChart"></canvas>
+
+            </div>
+
+            <!-- HISTORIAL -->
+            <div class="history">
+
+                <div class="history-header">
+
+                    <h2>Historial</h2>
+
+                    <button>Ver Todo</button>
+
+                </div>
+
+                <div class="event">
+
+                    <i class="fa-solid fa-circle-exclamation red"></i>
+
+                    <p>Gas elevado detectado</p>
+
+                    <span>10:30</span>
+
+                </div>
+
+                <div class="event">
+
+                    <i class="fa-solid fa-triangle-exclamation yellow"></i>
+
+                    <p>Advertencia activada</p>
+
+                    <span>10:28</span>
+
+                </div>
+
+                <div class="event">
+
+                    <i class="fa-solid fa-circle-check green"></i>
+
+                    <p>Sistema iniciado</p>
+
+                    <span>10:20</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- ALERTA -->
+<div id="alertBox" class="alert-box">
+
+    🚨 ALERTA DE GAS DETECTADA
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

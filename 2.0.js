@@ -1,0 +1,160 @@
+// FECHA
+
+const fecha = new Date();
+
+document.getElementById("fecha").innerHTML =
+fecha.toLocaleString();
+
+// GRAFICA
+
+const ctx =
+document.getElementById('gasChart');
+
+const gasChart = new Chart(ctx, {
+
+    type: 'line',
+
+    data: {
+
+        labels: ['10:20','10:21','10:22','10:23','10:24','10:25'],
+
+        datasets: [{
+
+            label: 'Gas (ppm)',
+
+            data: [400,700,900,1200,1000,1300],
+
+            tension: 0.4,
+
+            fill:true,
+
+            borderColor:'#22c55e',
+
+            backgroundColor:'rgba(34,197,94,.1)',
+
+            pointBackgroundColor:'#22c55e',
+
+            pointRadius:5
+
+        }]
+    },
+
+    options: {
+
+        responsive:true,
+
+        plugins:{
+            legend:{
+                labels:{
+                    color:'white'
+                }
+            }
+        },
+
+        scales:{
+
+            x:{
+                ticks:{
+                    color:'white'
+                }
+            },
+
+            y:{
+                ticks:{
+                    color:'white'
+                }
+            }
+        }
+    }
+});
+
+// SIMULACION
+
+setInterval(()=>{
+
+    let gas =
+    Math.floor(Math.random()*2000);
+
+    let temp =
+    Math.floor(Math.random()*20)+20;
+
+    document.getElementById("gasValue")
+    .innerHTML = gas;
+
+    document.getElementById("tempValue")
+    .innerHTML = temp;
+
+    // ALERTAS
+
+    if(gas > 1500){
+
+        document.getElementById("systemText")
+        .innerHTML = "EMERGENCIA";
+
+        document.getElementById("systemText")
+        .style.color = "#ef4444";
+
+        document.getElementById("systemDesc")
+        .innerHTML =
+        "Fuga peligrosa detectada";
+
+        document.getElementById("valveStatus")
+        .innerHTML = "CERRADA";
+
+        document.getElementById("sprinklerStatus")
+        .innerHTML = "ACTIVOS";
+
+        mostrarAlerta();
+
+    }
+    else if(gas > 1000){
+
+        document.getElementById("systemText")
+        .innerHTML = "ALERTA";
+
+        document.getElementById("systemText")
+        .style.color = "#facc15";
+
+        document.getElementById("systemDesc")
+        .innerHTML =
+        "Concentración elevada de gas";
+
+    }
+    else{
+
+        document.getElementById("systemText")
+        .innerHTML = "NORMAL";
+
+        document.getElementById("systemText")
+        .style.color = "#22c55e";
+
+        document.getElementById("systemDesc")
+        .innerHTML =
+        "Todos los sistemas funcionando correctamente";
+
+        document.getElementById("valveStatus")
+        .innerHTML = "ABIERTA";
+
+        document.getElementById("sprinklerStatus")
+        .innerHTML = "APAGADOS";
+
+    }
+
+},3000);
+
+// ALERTA
+
+function mostrarAlerta(){
+
+    const alertBox =
+    document.getElementById("alertBox");
+
+    alertBox.classList.add("alert-show");
+
+    setTimeout(()=>{
+
+        alertBox.classList.remove("alert-show");
+
+    },4000);
+
+}
